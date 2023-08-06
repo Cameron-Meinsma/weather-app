@@ -1,0 +1,87 @@
+body {
+    font-family: "Kanit", sans-serif, "Poppins";
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    margin: 10% auto auto;
+    width: 500px;
+    box-shadow: 6px 6px 10px 3px rgba(0, 0, 0, 0.1);
+    background: radial-gradient(
+        circle at 0% 0.5%,
+        rgb(241, 241, 242) 0.1%,
+        rgb(224, 226, 228) 100.2%
+    );
+}
+
+.search-input {
+    border-radius: 45px;
+    border: none;
+    background: none;
+}
+
+.search-button {
+    border: none;
+    border-radius: 45px;
+}
+
+.current-location-button {
+    border: none;
+    border-radius: 45px;
+    background-color: black;
+    color: white;
+}
+
+.day-1,
+.day-2,
+.day-3,
+.day-4,
+.day-5 {
+    border-radius: 5px;
+    margin: 4px;
+}
+
+.day-1:hover,
+.day-2:hover,
+.day-3:hover,
+.day-4:hover,
+.day-5:hover {
+    background: #bebebe;
+}
+
+.day {
+    font-size: 20px;
+}
+
+.lightning,
+.mostly-sunny,
+.heavy-showers,
+.rain {
+    font-size: 25px;
+}
+
+.location-temp {
+    text-align: left;
+}
+
+.date-time {
+    text-align: right;
+    font-size: 17.5px;
+}
+
+.min-max {
+    margin: 16px 0 0;
+}
+
+.min {
+    color: #939393;
+}
