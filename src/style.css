@@ -17,7 +17,6 @@ footer {
 }
 
 .card {
-    border: none;
     border-radius: 15px;
     margin: 10% auto auto;
     width: 500px;
@@ -90,4 +89,9 @@ footer {
 
 .min {
     color: #939393;
+}
+
+#current-location-button {
+    width: 113px;
+    height: 38.5px;
 }
