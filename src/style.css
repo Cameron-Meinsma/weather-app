@@ -10,6 +10,12 @@ h2 {
     font-size: 25px;
 }
 
+footer {
+    font-size: 11px;
+    text-align: center;
+    line-height: 2.8;
+}
+
 .card {
     border: none;
     border-radius: 15px;
