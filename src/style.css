@@ -120,6 +120,12 @@ footer {
 #current-location-button {
     width: 23%;
     height: 38.5px;
+    transition: all 125ms ease-in;
+}
+
+#current-location-button:hover {
+    background-color: #494949;
+    cursor: pointer;
 }
 
 #temperature {
