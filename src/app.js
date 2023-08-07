@@ -30,6 +30,9 @@ function displayWeather(response) {
     let temp = Math.round(tempInCelsius);
     let showTemp = document.querySelector("#temperature");
     showTemp.innerHTML = `${temp}`;
+
+    celsiusBtn.classList.add("active");
+    fahrenheitBtn.classList.remove("active");
 }
 
 function searchForCity(city) {
