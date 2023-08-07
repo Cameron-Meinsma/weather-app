@@ -25,9 +25,11 @@ dayAndTime.innerHTML = `${actualDay} ${actualHours}:${actualMinutes}`;
 function displayWeather(response) {
     document.querySelector("#city").innerHTML = response.data.name;
 
-    let temp = Math.round(response.data.main.temp);
+    tempInCelsius = response.data.main.temp;
+
+    let temp = Math.round(tempInCelsius);
     let showTemp = document.querySelector("#temperature");
-    showTemp.innerHTML = `${temp}°C`;
+    showTemp.innerHTML = `${temp}`;
 }
 
 function searchForCity(city) {
@@ -61,3 +63,31 @@ let currentLocationButton = document.querySelector(".current-location-button");
 currentLocationButton.addEventListener("click", currentLocationInfo);
 
 searchForCity("Los Angeles");
+
+// Converts from celsius to fahrenheit
+// (0 × 9/5) + 32
+function cToF(event) {
+    event.preventDefault();
+    let tempElement = document.querySelector("#temperature");
+    celsiusBtn.classList.remove("active");
+    fahrenheitBtn.classList.add("active");
+    tempElement.innerHTML = Math.round((tempInCelsius * 9) / 5 + 32);
+}
+
+// Converts from fahrenheit to celsius
+// (32 − 32) × 5/9
+function fToC(event) {
+    event.preventDefault();
+    celsiusBtn.classList.add("active");
+    fahrenheitBtn.classList.remove("active");
+    let tempElement = document.querySelector("#temperature");
+    tempElement.innerHTML = Math.round(tempInCelsius);
+}
+
+let tempInCelsius = null;
+
+let fahrenheitBtn = document.querySelector(".fahrenheit");
+fahrenheitBtn.addEventListener("click", cToF);
+
+let celsiusBtn = document.querySelector(".celsius");
+celsiusBtn.addEventListener("click", fToC);

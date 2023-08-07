@@ -19,7 +19,7 @@ footer {
 .card {
     border-radius: 15px;
     margin: 10% auto auto;
-    width: 500px;
+    max-width: 600px;
     box-shadow: 6px 6px 10px 3px rgba(0, 0, 0, 0.1);
     background: radial-gradient(
         circle at 0% 0.5%,
@@ -91,7 +91,22 @@ footer {
     color: #939393;
 }
 
+.active.celsius,
+.active.fahrenheit {
+    color: black;
+}
+
+.celsius,
+.fahrenheit {
+    color: darkgrey;
+    text-decoration: none;
+}
+
 #current-location-button {
-    width: 113px;
+    width: 124px;
     height: 38.5px;
+}
+
+#temperature {
+    display: inline;
 }
