@@ -19,6 +19,7 @@ footer {
 .card {
     border-radius: 15px;
     margin: 10% auto auto;
+    padding: 0;
     max-width: 600px;
     box-shadow: 6px 6px 10px 3px rgba(0, 0, 0, 0.1);
     background: radial-gradient(
@@ -78,9 +79,23 @@ footer {
     text-align: left;
 }
 
-.date-time {
+.date-time,
+.wind-speed,
+.weather-description {
     text-align: right;
-    font-size: 17.5px;
+}
+
+.wind-speed,
+.weather-description {
+    line-height: 0%;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+
+.date-time {
+    line-height: 200%;
+    font-size: 22px;
+    padding: 0 0 20px;
 }
 
 .min-max {

@@ -25,6 +25,21 @@ dayAndTime.innerHTML = `${actualDay} ${actualHours}:${actualMinutes}`;
 function displayWeather(response) {
     document.querySelector("#city").innerHTML = response.data.name;
 
+    let windSpeed = Math.round(response.data.wind.speed);
+    document.querySelector(
+        ".wind-speed"
+    ).innerHTML = `Wind Speed: ${windSpeed} KM/h`;
+
+    document.querySelector(".weather-description").innerHTML =
+        response.data.weather[0].description;
+
+    let weatherIcon = document.querySelector("#weather-icon");
+    weatherIcon.setAttribute(
+        "src",
+        `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    weatherIcon.setAttribute("alt", response.data.weather[0].description);
+
     tempInCelsius = response.data.main.temp;
 
     let temp = Math.round(tempInCelsius);
