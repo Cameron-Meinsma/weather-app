@@ -35,7 +35,7 @@ footer {
     border-radius: 15px;
     margin: 10% auto auto;
     padding: 0;
-    max-width: 600px;
+    max-width: 750px;
     box-shadow: 6px 6px 10px 3px rgba(0, 0, 0, 0.1);
     background: radial-gradient(
         circle at 0% 0.5%,
@@ -44,32 +44,23 @@ footer {
     );
 }
 
-.day-1,
-.day-2,
-.day-3,
-.day-4,
-.day-5 {
-    border-radius: 5px;
-    margin: 4px;
+.forecast {
+    margin-top: 20px;
+    text-align: center;
+    color: black;
 }
 
-.day-1:hover,
-.day-2:hover,
-.day-3:hover,
-.day-4:hover,
-.day-5:hover {
-    background: #bebebe;
+.forecast-date {
+    font-size: 16px;
+    opacity: 0.6;
 }
 
-.day {
-    font-size: 20px;
+.forecast-temp {
+    font-size: 13px;
 }
 
-.lightning,
-.mostly-sunny,
-.heavy-showers,
-.rain {
-    font-size: 25px;
+.forecast-min-temp {
+    color: #abacad;
 }
 
 .location-temp {
