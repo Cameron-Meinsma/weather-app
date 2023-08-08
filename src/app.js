@@ -109,6 +109,9 @@ function displayForecast(response) {
 
     let forecastHTML = '<div class="row">';
     forecast.forEach(function (forecastDay, index) {
+        minForecastCelsius = forecastDay.temp.min;
+        maxForecastCelsius = forecastDay.temp.max;
+
         if (index > 0 && index < 7) {
             forecastHTML += `
             <div class="col-2">
@@ -123,12 +126,12 @@ function displayForecast(response) {
                     width="42px"
                 />
                 <div class="forecast-temp">
-                    <span class="forecast-max-temp">${Math.round(
-                        forecastDay.temp.max
-                    )}°</span>
-                    <span class="forecast-min-temp">${Math.round(
-                        forecastDay.temp.min
-                    )}°</span>
+                    <span class="forecast-max-temp" id="forecast-max-temp-${index}">${Math.round(
+                maxForecastCelsius
+            )}°</span>
+                    <span class="forecast-min-temp" id="forecast-min-temp-${index}">${Math.round(
+                minForecastCelsius
+            )}°</span>
                 </div>
             </div>
         `;
@@ -158,12 +161,40 @@ function fToC(event) {
     tempElement.innerHTML = Math.round(tempInCelsius);
 }
 
+// Converts forecast from Celsius to Fahrenheit
+function forecastCToF(event) {
+    event.preventDefault();
+    for (let index = 1; index < 7; index++) {
+        let minTemp = document.querySelector(`#forecast-min-temp-${index}`);
+        minTemp.innerHTML = Math.round((minForecastCelsius * 9) / 5 + 32) + "°";
+
+        let maxTemp = document.querySelector(`#forecast-max-temp-${index}`);
+        maxTemp.innerHTML = Math.round((maxForecastCelsius * 9) / 5 + 32) + "°";
+    }
+}
+
+// Converts forecast from Fahrenheit to Celsius
+function forecastFToC(event) {
+    event.preventDefault();
+    for (let index = 1; index < 7; index++) {
+        let minTemp = document.querySelector(`#forecast-min-temp-${index}`);
+        minTemp.innerHTML = Math.round(minForecastCelsius) + "°";
+
+        let maxTemp = document.querySelector(`#forecast-max-temp-${index}`);
+        maxTemp.innerHTML = Math.round(maxForecastCelsius) + "°";
+    }
+}
+
 let tempInCelsius = null;
+let minForecastCelsius = null;
+let maxForecastCelsius = null;
 
 let fahrenheitBtn = document.querySelector(".fahrenheit");
 fahrenheitBtn.addEventListener("click", cToF);
+fahrenheitBtn.addEventListener("click", forecastCToF);
 
 let celsiusBtn = document.querySelector(".celsius");
 celsiusBtn.addEventListener("click", fToC);
+celsiusBtn.addEventListener("click", forecastFToC);
 
 searchForCity("Los Angeles");
