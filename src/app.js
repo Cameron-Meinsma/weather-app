@@ -62,6 +62,9 @@ function handleSubmit(event) {
     searchForCity(city);
 }
 
+let searchBtn = document.querySelector(".search-icon");
+searchBtn.addEventListener("click", handleSubmit);
+
 function userLocation(position) {
     let apiKey = "3bc520cc14bbdedfd7e45158f2ef0439";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
