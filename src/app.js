@@ -21,6 +21,13 @@ if (actualMinutes < 10) {
 let dayAndTime = document.querySelector(".date-time");
 dayAndTime.innerHTML = `${actualDay} ${actualHours}:${actualMinutes}`;
 
+// Gets the forecast
+function forecast(coordinates) {
+    let apiKey = "3bc520cc14bbdedfd7e45158f2ef0439";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+}
+
 // Displays the city and the weather
 function displayWeather(response) {
     document.querySelector("#city").innerHTML = response.data.name;
@@ -48,6 +55,8 @@ function displayWeather(response) {
 
     celsiusBtn.classList.add("active");
     fahrenheitBtn.classList.remove("active");
+
+    forecast(response.data.coord);
 }
 
 function searchForCity(city) {
@@ -84,7 +93,9 @@ let currentLocationButton = document.querySelector(".current-location-button");
 currentLocationButton.addEventListener("click", currentLocationInfo);
 
 // Displays the forecast for the next 5 days
-function displayForecast() {
+function displayForecast(response) {
+    console.log(response.data.daily);
+
     let forecastElement = document.querySelector("#forecast");
 
     let forecastHTML = '<div class="row">';
@@ -140,4 +151,3 @@ let celsiusBtn = document.querySelector(".celsius");
 celsiusBtn.addEventListener("click", fToC);
 
 searchForCity("Los Angeles");
-displayForecast();
