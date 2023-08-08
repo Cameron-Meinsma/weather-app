@@ -13,7 +13,7 @@ h2 {
 footer {
     font-size: 11px;
     text-align: center;
-    line-height: 100%;
+    line-height: 275%;
 }
 
 .email,
@@ -36,7 +36,6 @@ footer {
     margin: 10% auto auto;
     padding: 0;
     max-width: 600px;
-    max-height: 225px;
     box-shadow: 6px 6px 10px 3px rgba(0, 0, 0, 0.1);
     background: radial-gradient(
         circle at 0% 0.5%,
