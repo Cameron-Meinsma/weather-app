@@ -33,8 +33,8 @@ footer {
 
 .card {
     border-radius: 15px;
-    margin: 6% auto auto;
-    padding: 0;
+    margin: 5% auto auto;
+    padding: 10px;
     max-width: 750px;
     box-shadow: 6px 6px 10px 3px rgba(0, 0, 0, 0.1);
     background: radial-gradient(
