@@ -83,7 +83,33 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector(".current-location-button");
 currentLocationButton.addEventListener("click", currentLocationInfo);
 
-searchForCity("Los Angeles");
+// Displays the forecast for the next 5 days
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+
+    let forecastHTML = '<div class="row">';
+    let days = ["Thu", "Fri", "Sat", "Sun"];
+    days.forEach(function (day) {
+        forecastHTML =
+            forecastHTML +
+            `
+        <div class="col-2">
+            <div class="forecast-date">${day}</div>
+            <img
+                src="https://openweathermap.org/img/wn/01d@2x.png"
+                alt=""
+                width="42px"
+            />
+            <div class="forecast-temp">
+                <span class="forecast-max-temp">18°</span>
+                <span class="forecast-min-temp">12°</span>
+            </div>
+        </div>
+    `;
+    });
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+}
 
 // Converts from celsius to fahrenheit
 // (0 × 9/5) + 32
@@ -112,3 +138,6 @@ fahrenheitBtn.addEventListener("click", cToF);
 
 let celsiusBtn = document.querySelector(".celsius");
 celsiusBtn.addEventListener("click", fToC);
+
+searchForCity("Los Angeles");
+displayForecast();
